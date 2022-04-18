@@ -1,10 +1,11 @@
-def call(name) { 
+def call(scmurl) { 
 
     pipeline { 
        // agent any
         stage('Checkout') { 
             
-            echo "Checking out the sources...${name}"
+            echo "Checking out the sources..."
+            git url ${scmurl}
         }
  
         /*stage('Build Image') {
