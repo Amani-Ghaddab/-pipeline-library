@@ -1,8 +1,9 @@
-def call(Map config) { 
+def call(name) { 
   
     pipeline { 
+        agent any
         stage('Checkout') { 
-            echo "Checking out the sources...${config.name}"
+            echo "Checking out the sources...${name}"
            
             //checkout scmurl
         }
