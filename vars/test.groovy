@@ -5,7 +5,7 @@ def call(scmurl) {
         stage('Checkout') { 
             echo "Checking out the sources..."
            
-            checkout scmurl
+            checkout ${scmurl}
         }
  
         /*stage('Build Image') {
