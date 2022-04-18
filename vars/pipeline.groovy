@@ -1,8 +1,9 @@
-def call() { 
+def call(Map config) { 
   
     pipeline { 
         stage('Checkout') { 
-            echo "Checking out the sources..."
+            echo "Checking out the sources...${config.name}"
+           
             //checkout scmurl
         }
  
