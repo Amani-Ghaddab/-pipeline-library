@@ -1,7 +1,7 @@
 def call(name) { 
   
     pipeline { 
-        agent any
+      //  agent any
         stage('Checkout') { 
             echo "Checking out the sources...${name}"
            
