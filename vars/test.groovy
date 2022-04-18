@@ -1,6 +1,6 @@
 def call(scmurl) { 
   
-    pipeline { 
+    node { 
       //  agent any
         stage('Checkout') { 
             echo "Checking out the sources..."
