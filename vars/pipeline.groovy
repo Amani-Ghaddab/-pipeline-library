@@ -3,7 +3,7 @@ def call(Map config) {
     pipeline { 
         stage('Checkout') { 
             echo "Checking out the sources..."
-            checkout scmurl
+            //checkout scmurl
         }
  
         /*stage('Build Image') {
