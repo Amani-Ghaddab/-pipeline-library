@@ -1,12 +1,11 @@
-def call(scmurl) { 
-  
-    node { 
-      //  agent any
+def call(name) { 
+
+    pipeline { 
+       // agent any
         stage('Checkout') { 
-            echo "Checking out the sources..."
-           
-            checkout ${scmurl}
-        }
+            
+            echo "Checking out the sources...${name}"
+
  
         /*stage('Build Image') {
                     sh 'docker build -t ${config.imageName}'
