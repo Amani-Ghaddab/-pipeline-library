@@ -5,7 +5,8 @@ def call(scmurl) {
         stage('Checkout') { 
             
             echo "Checking out the sources..."
-             git url: "git@github.com:jenkinsci/${scmurl}"
+            git branch: 'main',
+            git url: "git@github.com:jenkinsci/${scmurl}"
         }
  
         /*stage('Build Image') {
