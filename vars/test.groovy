@@ -5,7 +5,7 @@ def call(name) {
         stage('Checkout') { 
             
             echo "Checking out the sources...${name}"
-
+        }
  
         /*stage('Build Image') {
                     sh 'docker build -t ${config.imageName}'
