@@ -1,12 +1,11 @@
 def call(scmurl) { 
 
     node { 
-       // agent any
-        stage('Checkout') { 
-            
-            echo "Checking out the sources..."
-            git branch: 'main',
-            git url: "${scmurl}"
+        stage('Clone sources') {
+           echo "Checking out the sources..."
+           // git url:'https://github.com/Amani-Ghaddab/docker-jenkins-.git'
+            ["git", "clone", "https://github.com/Amani-Ghaddab/docker-jenkins-.git", "*/main"].execute()
+          }
         }
  
         /*stage('Build Image') {
