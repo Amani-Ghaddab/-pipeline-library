@@ -1,21 +1,20 @@
-def call(scmurl) { 
-
-    node { 
-        stage('Clone sources') {
-           echo "Checking out the sources..."
-           // git url:'https://github.com/Amani-Ghaddab/docker-jenkins-.git'
-            ["git", "clone", "https://github.com/Amani-Ghaddab/docker-jenkins-.git", "*/main"].execute()
-          }
-        }
- 
-        /*stage('Build Image') {
-                    sh 'docker build -t ${config.imageName}'
-        }
-        stage('Integration Test') {
-		     steps {
-                    sh ' docker-compose -f ${config.dockerCompose} up '
-              
-           	 }
-         }*/
+def call (Map config)
+{
+    node
+        { 
+            stage('msg')
+            {
+                echo "checking out the source scmurl "
+                echo "${config.scmurl}"
+            }
+           stage("testCheckout") {
+            checkout([$class: 'GitSCM', 
+            branches: [[name: 'refs/heads/main']], 
+            userRemoteConfigs: [[
+                //refspec: '+refs/tags/*:refs/remotes/origin/tags/*',
+                url:"${config.scmurl}"]]
+                //url: 'https://github.com/hediane/teeeeeest.git']]
+        ])
+    }
     }
 }
