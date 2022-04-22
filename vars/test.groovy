@@ -21,5 +21,5 @@ def call (Map config)
                     echo "checking out the source dockerfile "
                 }
     }
-    }
+    
 }
