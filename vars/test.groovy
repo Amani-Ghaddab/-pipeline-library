@@ -15,7 +15,7 @@ def call (Map config)
 
         ])
     }  
-    stage('location of dockerfile'){
+    stage('location of dockerfile')
                 {  
                     sh "docker build -t teeeeeest -f ./mvc/dockerfile ."
                     echo "checking out the source dockerfile "
