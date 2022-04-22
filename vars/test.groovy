@@ -1,7 +1,7 @@
 def call (Map config)
 {
     node
-        { 
+        {
             stage('msg')
             {
                 echo "checking out the source scmurl "
@@ -15,5 +15,12 @@ def call (Map config)
 
         ])
     }
+    }
+    
+    stage('location of dockerfile'){
+                {  
+                    sh "docker build -t teeeeeest -f ./mvc/dockerfile ."
+                    echo "checking out the source dockerfile "
+                }
     }
 }
