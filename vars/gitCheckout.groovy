@@ -9,11 +9,7 @@ def call (Map config)
                 url:"${config.scmurl}"]]
 
         ])
-    }  
-     stage('location of dockerfile')
-                {  
-                    sh "docker build -t teeeeeest -f ./mvc/dockerfile ."
-                }
-    }
+        }  
+     }
     
 }
