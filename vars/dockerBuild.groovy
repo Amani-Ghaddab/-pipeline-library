@@ -4,7 +4,7 @@ def call (Map config)
         {
           stage('Docker build')
                 {  
-                    sh "docker build -t teeeeeest -f  ${config.dockerfileLocation}"
+                    sh "docker build -t teeeeeest -f  ./${config.dockerfileLocation}"
                 }
          }
     
