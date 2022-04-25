@@ -4,7 +4,7 @@ def call (Map config)
         {
           stage('Docker compose up')
                 {  
-                    sh "Docker-compose up "
+                    sh "${config.dockerComposLocation} up "
                 }
          }
     
