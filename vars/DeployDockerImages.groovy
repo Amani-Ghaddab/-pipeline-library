@@ -8,7 +8,6 @@ def call (Map config)
             userRemoteConfigs: [[
                 url:"${config.scmurl}"]]
         ])
-        sh "echo it's ok! "
         }  
      }
 }
