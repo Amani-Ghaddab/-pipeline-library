@@ -14,7 +14,7 @@ def call (Map config)
             {    
 
                  sh "ls -la ${pwd()}"
-                 sh "mkdir ${config.projectName}/Source | mkdir ${config.projectName}"
+                 sh "mkdir ${config.projectName} | mkdir ${config.projectName}/Source"
                  
 
                  //sh "cd mkdir aoso"
