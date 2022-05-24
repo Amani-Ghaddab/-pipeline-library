@@ -7,6 +7,7 @@ def call (Map config)
             branches: [[name: 'refs/heads/main']], 
             userRemoteConfigs: [[
                 url:"${config.scmurl}"]]
+            sh "echo  ${config.scmurl} "
 
         ])
         }  
