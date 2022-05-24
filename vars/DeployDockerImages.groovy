@@ -14,16 +14,11 @@ def call (Map config)
             {    
 
                  sh "ls -la ${pwd()}"
+                 sh "mkdir ${config.projectName}/Source | mkdir ${config.projectName}"
+                 
 
-                 sh "ls -la ${pwd()}/source"
+                 //sh "cd mkdir aoso"
 
-                 sh "ls -la ${pwd()}/source/DevOpsProject/"
-
-                 sh "cd /var/jenkins_home/workspace/ | mkdir aoso"
-
-                 sh "cp -r ${pwd()}/source/DevOpsProject /var/jenkins_home/workspace/aoso"
-
-                 sh "ls -la /var/jenkins_home/workspace/aoso "
 
             }  
     }
