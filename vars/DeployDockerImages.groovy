@@ -14,7 +14,7 @@ def call (Map config)
             {    
 
                  sh "ls -la ${pwd()}"
-                 sh "mkdir ${config.projectName} | mkdir ${config.projectName}/Source"
+                 sh "cp -r ${pwd()}/source/DevOpsProject /var/jenkins_home/workspace/aoso/DevOps/backend"
                  
 
                  //sh "cd mkdir aoso"
