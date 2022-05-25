@@ -13,8 +13,8 @@ def call (Map config)
 
             {    
                
-                sh " mkdir -p ~${config.destinationFile}/Sources "
-                sh "cp -r ${config.dockerComposeLocation} ~${config.destinationFile}"
+                sh " mkdir -p ~${config.destinationFile} "
+                sh "cp -r Source/${config.AosoBack} ~${config.destinationFile}"
                 sh "cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ~${config.destinationFile}"
                 sh " ls ~${config.destinationFile}"
                 // | mkdir ${pwd()}/${config.projectName}/DevOps | ${pwd()}/${config.projectName} 
