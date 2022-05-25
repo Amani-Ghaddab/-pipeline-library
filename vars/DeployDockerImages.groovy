@@ -13,7 +13,7 @@ def call (Map config)
 
             {    
 
-                sh "if [ ! -d $~${config.destinationFile} ] then mkdir -p ~${config.destinationFile} else echo 'Directory exists' fi"
+                sh "[-d $~${config.destinationFile} ] || mkdir -p ~${config.destinationFile} "
                
               //  sh "cp -r ${pwd()} ~${config.destinationFile}"
                 // | mkdir ${pwd()}/${config.projectName}/DevOps | ${pwd()}/${config.projectName} 
