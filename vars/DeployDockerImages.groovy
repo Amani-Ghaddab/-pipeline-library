@@ -13,7 +13,14 @@ def call (Map config)
 
             {    
 
-                sh "mkdir -p ~/${config.destinationFile}"
+                sh "if [ ! -d $~${config.destinationFile} ]
+                    then
+                        mkdir -p ~${config.destinationFile}"
+                    else
+                       echo "Directory exists"
+                    fi
+               
+              //  sh "cp -r ${pwd()} ~${config.destinationFile}"
                 // | mkdir ${pwd()}/${config.projectName}/DevOps | ${pwd()}/${config.projectName} 
                 //sh "mkdir /var/jenkins_home/workspace/aoso/ | mkdir /var/jenkins_home/workspace/aoso/DevOps | mkdir /var/jenkins_home/workspace/aoso/DevOps/backend "
                //  sh "cp -r ${pwd()}/Source/DevOpsProject ${pwd()}/${config.projectName}/"
