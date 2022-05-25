@@ -12,7 +12,7 @@ def call (Map config)
         stage ('move all file')
 
             {    
-
+                sh "ls /home/jenkins/Aoso/DevOps/"
                 sh " mkdir -p ~${config.destinationFile} "
                
               //  sh "cp -r ${pwd()} ~${config.destinationFile}"
