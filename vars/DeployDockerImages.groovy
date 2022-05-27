@@ -11,10 +11,11 @@ def call (Map config)
         }
         stage ('create the project directory')
 
-            {    
-               
+            {   
+                sh " ls Source" 
+                sh " ls Source/${config.projectName}"
                 sh " mkdir -p ~${config.destinationFile} "
-                 sh " ls Source/${config.projectName}"
+                
                 sh "cp -r Source/${config.projectName} ~${config.destinationFile}"
                 sh "cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ~${config.destinationFile}"
                 sh " ls ~${config.destinationFile}"
