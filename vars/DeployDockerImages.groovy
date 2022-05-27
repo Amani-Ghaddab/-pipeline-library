@@ -18,5 +18,9 @@ def call (Map config)
                 sh "cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ~${config.destinationFile}"
                 sh " ls ~${config.destinationFile}"
             }  
+        stage('Docker build')
+                {  
+                    sh "docker build -t docker-compose-front.yml ."
+                }
     }
 }
