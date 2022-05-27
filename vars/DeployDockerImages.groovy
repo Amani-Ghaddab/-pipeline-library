@@ -20,7 +20,7 @@ def call (Map config)
             }  
         stage('Docker build')
                 {  
-                    sh "docker -f ~/Aoso/DevOps/frontend/docker-compose-front.yml up -d"
+                    sh "docker-compose -f ~/Aoso/DevOps/frontend/docker-compose-front.yml up -d"
                 }
     }
 }
