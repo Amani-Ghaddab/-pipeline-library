@@ -18,6 +18,7 @@ def call (Map config)
                 sh "cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ~${config.destinationFile}"
                 sh " ls ~${config.destinationFile}"
                 sh " ls ~${config.destinationFile}/nginx"
+                sh " ls ~${config.destinationFile}/frontend"
             }  
         stage('Docker build')
                 {  
