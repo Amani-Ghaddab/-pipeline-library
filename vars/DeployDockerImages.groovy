@@ -25,7 +25,7 @@ def call (Map config)
             }  
         stage('Docker build')
                 {  
-                    sh "/use/local/bin/rdocker-compose -f ~${config.destinationFile}/docker-compose-back.yml up -d"
+                    sh "/user/local/bin/docker-compose -f ~${config.destinationFile}/docker-compose-back.yml up -d"
                 }
     }
 }
