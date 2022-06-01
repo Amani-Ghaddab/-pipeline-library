@@ -20,7 +20,7 @@ def call (Map config)
         //         sh " ls ~${config.destinationFile}"
         //         sh " ls ~${config.destinationFile}/nginx"
         //       //  sh " ls ~${config.destinationFile}/AosoFront"
-        //     }  
+            }  
         // stage('Docker build')
         //         {  
         //             sh "docker-compose -f ~${config.destinationFile}/docker-compose-back.yml up -d"
