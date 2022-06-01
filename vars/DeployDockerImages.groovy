@@ -23,9 +23,9 @@ def call (Map config)
                 sh " cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
                 sh " ls ${config.destinationFile}/${config.projectName}"
             }  
-        // stage('Docker build')
-        //         {  
-        //             sh "docker-compose -f ~${config.destinationFile}/docker-compose-back.yml up -d"
-        //         }
+        stage('Docker build')
+                {  
+                    sh "docker-compose -f ~${config.destinationFile}/docker-compose-back.yml up -d"
+                }
     }
 }
