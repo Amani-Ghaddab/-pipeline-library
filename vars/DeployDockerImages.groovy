@@ -12,14 +12,10 @@ def call (Map config)
         stage ('create the project directory')
 
             {   sh " ls -la ${pwd()}"
-                
-        //         sh " mkdir -p ~${config.destinationFile} "
-                
-        //         sh "cp -r Source/${config.projectName} ~${config.destinationFile}"
-        //         sh "cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ~${config.destinationFile}"
-        //         sh " ls ~${config.destinationFile}"
-        //         sh " ls ~${config.destinationFile}/nginx"
-        //       //  sh " ls ~${config.destinationFile}/AosoFront"
+                sh " mkdir -p ${config.destinationFile} "
+                sh " cp -r Source/${config.projectName} ${config.destinationFile}"
+                sh "cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
+                sh " ls ${config.destinationFile}/${config.projectName}"
             }  
         // stage('Docker build')
         //         {  
