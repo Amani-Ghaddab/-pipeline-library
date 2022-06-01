@@ -12,6 +12,7 @@ def call (Map config)
         stage ('create the project directory')
 
             {   sh "whoami"
+                sh " /usr/local/bin/docker-compose up -d"
                 sh " ls -la ${pwd()}"
                 sh " mkdir -p ${config.destinationFile} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFile}"
@@ -20,7 +21,7 @@ def call (Map config)
             }  
         stage('Docker build')
                 {  
-                    sh " /usr/local/bin/docker-compose up /srv/Aoso2/DevOps/backend/docker-compose.yml -d"
+                    sh " /usr/local/bin/docker-compose up -d"
                 }
     }
 }
