@@ -13,8 +13,6 @@ def call (Map config)
 
             {   sh "whoami"
                 sh " ls -la ${pwd()}"
-                sh "docker-compose -f ${pwd()}/${config.dockerComposeLocation} up"
-   
                 sh " mkdir -p ${config.destinationFile} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFile}"
                 sh " cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
@@ -22,7 +20,7 @@ def call (Map config)
             }  
         stage('Docker build')
                 {  
-                    sh "docker-compose -f /srv/Aoso2/DevOps/backend/docker-compose-back.yml up"
+                    sh " /usr/local/bin/docker-compose -f /srv/Aoso2/DevOps/backend/docker-compose-back.yml up -d"
                 }
     }
 }
