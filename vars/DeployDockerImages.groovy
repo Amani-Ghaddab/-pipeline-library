@@ -12,8 +12,9 @@ def call (Map config)
         stage ('create the project directory')
 
             {   sh "whoami"
-                sh " /usr/local/bin/docker-compose up -d"
+               
                 sh " ls -la ${pwd()}"
+                sh " /usr/local/bin/docker-compose up -d"
                 sh " mkdir -p ${config.destinationFile} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFile}"
                 sh " cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
