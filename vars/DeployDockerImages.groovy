@@ -23,7 +23,7 @@ def call (Map config)
               //  sh " ls ~${config.destinationFile}/AosoFront"
             }  
         stage('Docker build')
-                {  sh " which docker-compose "
+                {  
                     sh "/usr/local/bin/docker-compose -f ~${config.destinationFile}/docker-compose-back.yml up -d"
                 }
     }
