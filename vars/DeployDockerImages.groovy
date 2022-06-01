@@ -13,7 +13,11 @@ def call (Map config)
 
             {   sh "whoami"
                 sh " ls -la ${pwd()}"
-               
+                 sh "pwd"
+             dir("${config.destinationFile} ") {
+      sh "pwd"
+    }
+    sh "pwd"
                 sh " mkdir -p ${config.destinationFile} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFile}"
                 sh " cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
