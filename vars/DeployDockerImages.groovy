@@ -11,20 +11,19 @@ def call (Map config)
         }
         stage ('create the project directory')
 
-            {   
-                sh " ls Source" 
-                sh " ls Source/${config.projectName}"
-                sh " mkdir -p ~${config.destinationFile} "
+            {   sh " ls -la ${pwd()}"
                 
-                sh "cp -r Source/${config.projectName} ~${config.destinationFile}"
-                sh "cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ~${config.destinationFile}"
-                sh " ls ~${config.destinationFile}"
-                sh " ls ~${config.destinationFile}/nginx"
-              //  sh " ls ~${config.destinationFile}/AosoFront"
-            }  
-        stage('Docker build')
-                {  
-                    sh "docker-compose -f ~${config.destinationFile}/docker-compose-back.yml up -d"
-                }
+        //         sh " mkdir -p ~${config.destinationFile} "
+                
+        //         sh "cp -r Source/${config.projectName} ~${config.destinationFile}"
+        //         sh "cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ~${config.destinationFile}"
+        //         sh " ls ~${config.destinationFile}"
+        //         sh " ls ~${config.destinationFile}/nginx"
+        //       //  sh " ls ~${config.destinationFile}/AosoFront"
+        //     }  
+        // stage('Docker build')
+        //         {  
+        //             sh "docker-compose -f ~${config.destinationFile}/docker-compose-back.yml up -d"
+        //         }
     }
 }
