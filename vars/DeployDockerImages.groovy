@@ -10,19 +10,15 @@ def call (Map config)
         ])
         }
         stage ('create the project directory')
-
-            {   sh "whoami"
-               
+            {   
                 sh " ls -la ${pwd()}"
-                //sh " /usr/local/bin/docker-compose up -d"
                 sh " mkdir -p ${config.destinationFile} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFile}"
-                sh " cp -r ${config.dockerComposeLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
-                sh " ls ${config.destinationFile}"
+                sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
             }  
         stage('Docker build')
                 {  
-                    sh " /usr/local/bin/docker-compose -f /srv/Aoso2/DevOps/backend/docker-compose.yml up -d"
+                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} up -d up -d --build"
                 }
     }
 }
