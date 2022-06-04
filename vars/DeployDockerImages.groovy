@@ -18,7 +18,7 @@ def call (Map config)
             }  
         stage('Docker build')
                 {  
-                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p back_jenkins up -d up -d --build --remove-orphans"
+                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p back_jenkins up -d "
                 }
     }
 }
