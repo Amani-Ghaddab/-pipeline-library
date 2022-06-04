@@ -18,7 +18,7 @@ def call (Map config)
             }  
         stage('Docker build')
                 {  
-                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p back_jenkins up -d --build "
+                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
                 }
     }
 }
