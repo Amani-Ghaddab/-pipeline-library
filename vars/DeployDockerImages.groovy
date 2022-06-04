@@ -19,7 +19,7 @@ def call (Map config)
             }  
         stage('Docker build')
                 {  
-                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} up -d up -d --build"
+                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} up -d up -d --build --remove-orphans"
                 }
     }
 }
