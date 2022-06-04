@@ -15,11 +15,10 @@ def call (Map config)
                 sh " mkdir -p ${config.destinationFile} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFile}"
                 sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
-                sh "ls -la /srv/Aoso2/DevOps/backend"
             }  
         stage('Docker build')
                 {  
-                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} up -d up -d --build --remove-orphans"
+                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p back_jenkins up -d up -d --build --remove-orphans"
                 }
     }
 }
