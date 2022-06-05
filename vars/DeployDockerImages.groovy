@@ -2,6 +2,13 @@ def call (Map config)
 {
     node
         {
+          stage("gitCheckout") {
+            checkout([$class: 'GitSCM', 
+            branches: [[name: 'refs/heads/main']], 
+            userRemoteConfigs: [[
+                url:"${config.scmurl}"]]
+        ])
+        }
         stage('Sonarqube analysis ') {
 
     //  environment { 
@@ -30,13 +37,7 @@ def call (Map config)
       //  }
         }
         }
-        // stage("gitCheckout") {
-        //     checkout([$class: 'GitSCM', 
-        //     branches: [[name: 'refs/heads/main']], 
-        //     userRemoteConfigs: [[
-        //         url:"${config.scmurl}"]]
-        // ])
-        // }
+      
         // stage ('create the project directory')
         //     {   
         //         sh " ls -la ${pwd()}"
