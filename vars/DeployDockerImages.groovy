@@ -14,15 +14,15 @@ def call (Map config)
 
         steps {
 
-        withSonarQubeEnv('sonarserver') {
+            withSonarQubeEnv('sonarserver') {
 
-            sh 'dotnet restore'
+                sh 'dotnet restore'
 
-            sh ("""dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll begin /k:'app_key'""")
+                sh ("""dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll begin /k:'app_key'""")
 
-            sh "dotnet build app.sln"
+                sh "dotnet build app.sln"
 
-            sh "dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll end"
+                sh "dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll end"
 // dotnet tool install --global dotnet-sonarscanner
 // dotnet sonarscanner begin /k:"project-key" /d:sonar.login="<token>"
 // dotnet build <path to solution.sln>
