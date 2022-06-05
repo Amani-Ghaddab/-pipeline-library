@@ -4,15 +4,15 @@ def call (Map config)
         {
         stage('Sonarqube analysis ') {
 
-        environment { 
+        // environment { 
 
-            //def scannerHome = tool 'SonarScanner 4.10.0'
+        //     //def scannerHome = tool 'SonarScanner 4.10.0'
 
-            MSBUILD_SQ_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation'
+        //     MSBUILD_SQ_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation'
 
-                }
+        //         }
 
-        steps {
+        // steps {
 
             withSonarQubeEnv('sonarserver') {
 
@@ -27,7 +27,7 @@ def call (Map config)
 // dotnet sonarscanner begin /k:"project-key" /d:sonar.login="<token>"
 // dotnet build <path to solution.sln>
 // dotnet sonarscanner end /d:sonar.login="<token>"
-        }
+      //  }
         }
         }
         // stage("gitCheckout") {
