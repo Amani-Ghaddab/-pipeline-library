@@ -14,7 +14,7 @@ def call (Map config)
 
         // steps {
 
-            withSonarQubeEnv('sonarserver') {
+            withSonarQubeEnv('SonarQube') {
 
                 sh 'dotnet restore'
 
