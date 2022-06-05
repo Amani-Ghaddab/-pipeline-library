@@ -8,6 +8,7 @@ def call (Map config)
             userRemoteConfigs: [[
                 url:"${config.scmurl}"]]
         ])
+             sh " ls -la ${pwd()}"
         }
         stage('Sonarqube analysis ') {
 
@@ -40,7 +41,7 @@ def call (Map config)
       
         // stage ('create the project directory')
         //     {   
-        //         sh " ls -la ${pwd()}"
+        //        
         //         sh " mkdir -p ${config.destinationFile} "
         //         sh " cp -r Source/${config.projectName} ${config.destinationFile}"
         //         sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
