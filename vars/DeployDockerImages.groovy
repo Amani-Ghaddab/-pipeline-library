@@ -8,7 +8,7 @@ def call (Map config)
             userRemoteConfigs: [[
                 url:"${config.scmurl}"]]
         ])
-             sh " ls -la ${pwd()}"
+            
         }
         stage('Sonarqube analysis ') {
 
@@ -24,7 +24,8 @@ def call (Map config)
 
             withSonarQubeEnv('SonarQube') {
                 
-                dir(" Source/${config.projectName}") {
+                dir("Source/${config.projectName}") {
+                     sh " ls -la ${pwd()}"
                     sh 'dotnet restore'
 
                     sh ("""dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll begin /k:'app_key'""")
