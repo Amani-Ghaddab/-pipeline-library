@@ -10,7 +10,7 @@ def call (Map config)
         ])
             
         }
-        stage('Sonarqube analysis ') {
+      //  stage('Sonarqube analysis ') {
 
     //  environment { 
 
@@ -22,37 +22,36 @@ def call (Map config)
 
         // steps {
 
-            withSonarQubeEnv('SonarQube') {
+            // withSonarQubeEnv('SonarQube') {
                 
-                dir("Source/${config.projectName}") {
-                     sh " ls -la ${pwd()}"
-                    sh 'dotnet restore'
+            //     dir("Source/${config.projectName}") {
+            //          sh " ls -la ${pwd()}"
+            //         sh 'dotnet restore'
 
-                    sh ("""dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll begin /k:'app_key'""")
+            //         sh ("""dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll begin /k:'app_key'""")
 
-                    sh "dotnet build app.sln"
+            //         sh "dotnet build app.sln"
 
-                    sh "dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll end"}
+            //         sh "dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll end"}
 // dotnet tool install --global dotnet-sonarscanner
 // dotnet sonarscanner begin /k:"project-key" /d:sonar.login="<token>"
 // dotnet build <path to solution.sln>
 // dotnet sonarscanner end /d:sonar.login="<token>"
       //  }
-        }
-        }
+       
       
-        // stage ('create the project directory')
-        //     {   
-        //        
-        //         sh " mkdir -p ${config.destinationFile} "
-        //         sh " cp -r Source/${config.projectName} ${config.destinationFile}"
-        //         sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
-        //         sh " ls -la ${config.destinationFile} "
-        //     }  
-        // stage('Docker build')
-        //         {  
-        //             sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
-        //         }
+        stage ('create the project directory')
+            {   
+               
+                sh " mkdir -p ${config.destinationFile} "
+                sh " cp -r Source/${config.projectName} ${config.destinationFile}"
+                sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
+                sh " ls -la ${config.destinationFile} "
+            }  
+        stage('Docker build')
+                {  
+                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
+                }
     }
 
 }
