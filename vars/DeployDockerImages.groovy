@@ -17,7 +17,7 @@ def call (Map config)
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
                    // sh "dotnet tool install --global dotnet-sonarscanner"
-                   sh ("${scannerHome}/SonarScanner.MSBuild.dll begin /k:devopsAoso /d:sonar.host.url=http://localhost:9000")
+                   sh ("${scannerHome}//bin/sonar-scanner begin /k:devopsAoso /d:sonar.host.url=http://localhost:9000")
 
                     sh "dotnet build DevOpsProject.csproj"
 
