@@ -31,9 +31,7 @@ def call (Map config)
       sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"AosoDevops\" "
       sh "dotnet build DevOpsProject.csproj"
       sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
-    }
-  }
-       
+    
       }
     //     stage ('create the project directory')
     //         {   
