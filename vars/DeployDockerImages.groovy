@@ -15,8 +15,8 @@ def call (Map config)
          def scannerHome = tool 'sonarscanner';
          //def MSBUILD_SQ_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation';
 
-            //  withSonarQubeEnv('SonarQube') {
-            //      dir("Source/${config.projectName}") {
+             withSonarQubeEnv('SonarQube') {
+                 dir("Source/${config.projectName}") {
             //         sh " ls -la ${pwd()}"
             //        // sh "dotnet tool install --global dotnet-sonarscanner"
             //        sh ("${scannerHome}/bin/sonar-scanner begin -D /k:AosoDevops -D /d:sonar.host.url=http://localhost:9000 -D /d:sonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51")
@@ -24,7 +24,7 @@ def call (Map config)
             //         sh "dotnet build DevOpsProject.csproj"
 
             //         sh "${scannerHome}/bin/sonar-scanner end" }
-      def scannerHome = tool name: 'sonarscanner';
+                     def scannerHome = tool name: 'sonarscanner';
 
                     //sh "dotnet ${scannerHome}/bin/sonar-scanner  /k:Aoso /d:sonar.host.url= http://localhost:9000"
 
@@ -57,3 +57,5 @@ def call (Map config)
     //             {  
     //                 sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
     //             }
+        }
+        }
