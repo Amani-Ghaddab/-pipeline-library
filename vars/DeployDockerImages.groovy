@@ -18,7 +18,7 @@ def call (Map config)
              withSonarQubeEnv('SonarQube') {
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
-                   // sh "dotnet tool install --global dotnet-sonarscanner"
+                    sh "dotnet tool install --global dotnet-sonarscanner"
                    sh ("${scannerHome}/bin/sonar-scanner begin /k:AosoDevops /d:sonar.host.url=http://localhost:9000")
 
                     sh "dotnet build DevOpsProject.csproj"
