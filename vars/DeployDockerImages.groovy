@@ -1,5 +1,12 @@
 def call (Map config)
 {
+    environment { 
+
+             def scannerHome = tool 'SonarScanner 4.10.0'
+
+             MSBUILD_SQ_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation'
+
+                 }
     node
         {
           stage("gitCheckout") {
@@ -11,16 +18,6 @@ def call (Map config)
             
         }
        stage('Sonarqube analysis ') {
-
-     environment { 
-
-             def scannerHome = tool 'SonarScanner 4.10.0'
-
-             MSBUILD_SQ_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation'
-
-                 }
-
-     
 
             withSonarQubeEnv('SonarQube') {
                 
