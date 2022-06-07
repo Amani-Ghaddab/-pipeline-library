@@ -23,7 +23,7 @@ def call (Map config)
 
                     sh "dotnet build DevOpsProject.csproj"
 
-                    sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"}
+                    sh "${scannerHome}/bin/sonar-scanner end"}
 
      
        
