@@ -35,21 +35,21 @@ def call (Map config)
 
        }
        
-      
-        stage ('create the project directory')
-            {   
+      }
+    //     stage ('create the project directory')
+    //         {   
                
-                sh " mkdir -p ${config.destinationFile} "
-                sh " cp -r Source/${config.projectName} ${config.destinationFile}"
-                sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
-                sh " ls -la ${config.destinationFile} "
-            }  
-        stage('Docker build')
-                {  
-                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
-                }
-    }
+    //             sh " mkdir -p ${config.destinationFile} "
+    //             sh " cp -r Source/${config.projectName} ${config.destinationFile}"
+    //             sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFile}"
+    //             sh " ls -la ${config.destinationFile} "
+    //         }  
+    //     stage('Docker build')
+    //             {  
+    //                 sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
+    //             }
+    // }
 
-}
+
         }
 }
