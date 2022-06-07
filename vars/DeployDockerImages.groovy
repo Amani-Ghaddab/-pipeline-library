@@ -24,7 +24,7 @@ def call (Map config)
 
                     sh "dotnet build "
 
-                    sh "${MSBUILD_SQ_SCANNER_HOME}/bin/sonar-scanner end -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51" }
+                    sh "${MSBUILD_SQ_SCANNER_HOME}/bin/sonar-scanner -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51" }
 
     //   stage('SonarQube Analysis') {
     //     def scannerHome = tool 'SonarScanner for MSBuild'
