@@ -12,7 +12,7 @@ def call (Map config)
             
         }
        stage('SonarQube analysis') {
-         def scannerHome = tool 'SonarQube';
+         def scannerHome = tool 'sonarscanner';
              withSonarQubeEnv('SonarQube') {
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
