@@ -48,7 +48,7 @@ def call (Map config)
     //             {  
     //                 sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
     //             }
-    // }
+     }
 
 
         }
