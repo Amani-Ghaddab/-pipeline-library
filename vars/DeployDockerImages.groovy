@@ -13,15 +13,17 @@ def call (Map config)
         }
        stage('SonarQube analysis') {
          def scannerHome = tool 'sonarscanner';
+         def MSBUILD_SQ_SCANNER_HOME = tool name: 'sonarScanner', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation';
+
              withSonarQubeEnv('SonarQube') {
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
                    // sh "dotnet tool install --global dotnet-sonarscanner"
-                   sh ("${scannerHome}/bin/sonar-scanner begin /k:devopsAoso /d:sonar.host.url=http://localhost:9000")
+                   sh ("${scannerHome}/bin/sonar-scanner begin /k:AosoDevops /d:sonar.host.url=http://localhost:9000")
 
                     sh "dotnet build DevOpsProject.csproj"
 
-                    sh "dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll end"}
+                    sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"}
 
      
        
