@@ -20,7 +20,7 @@ def call (Map config)
 
                  }
 
-        steps {
+     
 
             withSonarQubeEnv('SonarQube') {
                 
@@ -33,7 +33,7 @@ def call (Map config)
 
                     sh "dotnet ${MSBUILD_SQ_SCANNER_HOME}/SonarScanner.MSBuild.dll end"}
 
-       }
+     
        
       }
     //     stage ('create the project directory')
