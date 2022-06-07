@@ -19,12 +19,12 @@ def call (Map config)
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
                    // sh "dotnet tool install --global dotnet-sonarscanner"
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=AosoDevops -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51 "
+                    sh "${MSBUILD_SQ_SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=AosoDevops -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51 "
                 //    sh ("${scannerHome}/bin/sonar-scanner begin -D /k:AosoDevops -D /d:sonar.host.url=http://localhost:9000 -D /d:sonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51")
 
-                    sh "dotnet build DevOpsProject.csproj"
+                    sh "dotnet build "
 
-                    sh "${scannerHome}/bin/sonar-scanner end" }
+                    sh "${MSBUILD_SQ_SCANNER_HOME}/bin/sonar-scanner end" }
 
     //   stage('SonarQube Analysis') {
     //     def scannerHome = tool 'SonarScanner for MSBuild'
