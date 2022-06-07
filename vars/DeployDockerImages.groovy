@@ -12,8 +12,8 @@ def call (Map config)
             
         }
        stage('SonarQube analysis') {
-         def scannerHome = tool 'SonarScanner 4.0';
-             withSonarQubeEnv('My SonarQube Server') {
+         def scannerHome = tool 'SonarQube';
+             withSonarQubeEnv('SonarQube') {
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
                    // sh "dotnet tool install --global dotnet-sonarscanner"
