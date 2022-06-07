@@ -27,7 +27,7 @@ def call (Map config)
 
       stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarScanner for MSBuild'
-    withSonarQubeEnv() {
+    withSonarQubeEnv('SonarQube') {
       sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"AosoDevops\" "
       sh "dotnet build DevOpsProject.csproj"
       sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
