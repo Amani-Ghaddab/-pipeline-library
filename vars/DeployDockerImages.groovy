@@ -33,7 +33,7 @@ def call (Map config)
                     //sh "${scannerHome}/bin/sonar-scanner -D /k:Aoso -D /d:sonar.host.url=http://localhost:9000  -D /d:sonar.login=ab9f339761ec69b84c33072c739b28b604d3f8ce "
 
                     sh "dotnet build DevOpsProject.csproj"
-
+                      sh "${scannerHome}/bin/sonar-scanner end" }
                     }
 
                 }
@@ -57,8 +57,3 @@ def call (Map config)
     //             {  
     //                 sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
     //             }
-     }
-       }
-
-        }
-}
