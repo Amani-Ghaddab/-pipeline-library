@@ -18,7 +18,7 @@ def call (Map config)
              withSonarQubeEnv('SonarQube') {
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
-                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"test\" -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51 "
+                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"test\" -/d:sonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51 "
                     sh "dotnet build"
                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"}
                 //    // sh "dotnet tool install --global dotnet-sonarscanner"
