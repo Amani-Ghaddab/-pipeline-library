@@ -6,7 +6,6 @@ def call (Map config)
       
         stage ('create the local project directory')
             {   
-                sh "chmod -R 777 /srv"
                 sh " mkdir -p ${config.destinationFolder} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFolder}"
                 sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFolder}"
