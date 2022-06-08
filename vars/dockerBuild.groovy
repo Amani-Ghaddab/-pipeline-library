@@ -2,10 +2,10 @@ def call (Map config)
 {
     node
         {
-          stage('Docker build')
+         stage('Docker build and up')
                 {  
-                    sh "docker build  ${config.dockerfileLocation} ."
+                    sh " ${config.dockerComposeLocation}/docker-compose -f ${config.dockerComposeFileDestination} -p ${config.containerName} up -d --build "
                 }
          }
     
-}s
+}

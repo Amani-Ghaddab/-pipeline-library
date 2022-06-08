@@ -2,7 +2,7 @@ def call (Map config)
 {
     node
         {
-           stage("gitCheckout") {
+            stage("gitCheckout") {
             checkout([$class: 'GitSCM', 
             branches: [[name: 'refs/heads/main']], 
             userRemoteConfigs: [[
