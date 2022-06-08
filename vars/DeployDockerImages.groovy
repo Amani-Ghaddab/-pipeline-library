@@ -13,18 +13,21 @@ def call (Map config)
         }
        stage('SonarQube analysis') {
          //def scannerHome = tool 'sonarscanner';
-        MSBUILD_SQ_SCANNER_HOME = tool 'sonarscanner'//, type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation';
-
+       // MSBUILD_SQ_SCANNER_HOME = tool 'sonarscanner'//, type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation';
+         def scannerHome = tool 'SonarScanner for MSBuild'
              withSonarQubeEnv('SonarQube') {
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
-                   // sh "dotnet tool install --global dotnet-sonarscanner"
-                    sh "${MSBUILD_SQ_SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=AosoDevops -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51 "
-                //    sh ("${scannerHome}/bin/sonar-scanner begin -D /k:AosoDevops -D /d:sonar.host.url=http://localhost:9000 -D /d:sonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51")
+                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"test\""
+                    sh "dotnet build"
+                    sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+                //    // sh "dotnet tool install --global dotnet-sonarscanner"
+                //     sh "${MSBUILD_SQ_SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=AosoDevops -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51 "
+                // //    sh ("${scannerHome}/bin/sonar-scanner begin -D /k:AosoDevops -D /d:sonar.host.url=http://localhost:9000 -D /d:sonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51")
 
-                    sh "dotnet build "
+                //     sh "dotnet build "
 
-                    sh "${MSBUILD_SQ_SCANNER_HOME}/bin/sonar-scanner end -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51" }
+                //     sh "${MSBUILD_SQ_SCANNER_HOME}/bin/sonar-scanner end -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51" }
 
     //   stage('SonarQube Analysis') {
     //     def scannerHome = tool 'SonarScanner for MSBuild'
