@@ -1,4 +1,4 @@
-ef call (Map config)
+def call (Map config)
 {
     node
         {
