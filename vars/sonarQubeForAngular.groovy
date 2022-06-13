@@ -4,12 +4,13 @@ ef call (Map config)
     node
         {
           stage('quality code analysis') {
-           
-                def scannerHome = tool 'SonarQubeScanner'
-                withSonarQubeEnv('SonarQube') {
+              
+                withSonarQubeEnv('sonarqube') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
-            
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+          }
         }
-    }
-}
