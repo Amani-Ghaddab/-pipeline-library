@@ -28,9 +28,9 @@ def call (Map config)
     //          }
     // }
     stage("Quality gate") {
-            steps {
+           
                 waitForQualityGate abortPipeline: true
-            }
+            
         }
 }
 }
