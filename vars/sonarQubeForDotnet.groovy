@@ -17,15 +17,15 @@ def call (Map config)
              }
       }
      
-        stage("Quality Gate"){
-             timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
+    //     stage("Quality Gate"){
+    //          timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
            
-             def qg = waitForQualityGate(webhookSecretId: '') // Reuse taskId previously collected by withSonarQubeEnv
-             if (qg.status != 'OK') {
-                    sh" echo $qg "
-                    error "Pipeline aborted due to quality gate failure: ${qg.status}"
-    }
-             }
-    }
+    //          def qg = waitForQualityGate(webhookSecretId: '') // Reuse taskId previously collected by withSonarQubeEnv
+    //          if (qg.status != 'OK') {
+    //                 sh" echo $qg "
+    //                 error "Pipeline aborted due to quality gate failure: ${qg.status}"
+    // }
+    //          }
+    // }
 }
 }
