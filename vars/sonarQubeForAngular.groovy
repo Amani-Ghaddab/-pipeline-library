@@ -3,7 +3,7 @@ def call (Map config)
     node
         {
         def scannerHome = tool 'SonarScanner'
-             withSonarQubeEnv('SonarQubeScanner') { 
+             withSonarQubeEnv('SonarQube') { 
                  dir("Source/${config.projectName}") {
               
                 
