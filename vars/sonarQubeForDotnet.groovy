@@ -24,7 +24,7 @@ def call (Map config)
 //     }
    
     stage("Quality gate") {
-           def qualitygate = waitForQualityGate(webhookSecretId:'jenkinsSonar')
+           def qualitygate = waitForQualityGate()
           sleep(10)
           if (qualitygate.status != "OK") {
             waitForQualityGate abortPipeline: true
