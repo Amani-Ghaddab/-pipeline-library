@@ -13,7 +13,7 @@ def call (Map config)
                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"${config.projectName}\" /d:sonar.login=${config.sonarLogin}"
                     sh "dotnet build"
                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end /d:sonar.login=${config.sonarLogin}"}
-                    println ${env.SONAR_HOST_URL} 
+                    //println ${env.SONAR_HOST_URL} 
              }
       }
      stage("Quality Gate"){
