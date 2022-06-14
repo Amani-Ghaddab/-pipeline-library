@@ -13,24 +13,20 @@ def call (Map config)
                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"${config.projectName}\" /d:sonar.login=${config.sonarLogin}"
                     sh "dotnet build"
                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end /d:sonar.login=${config.sonarLogin}"}
-               
+                    println ${env.SONAR_HOST_URL} 
              }
       }
-     
-    //     stage("Quality Gate"){
-    //          timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
+     stage("Quality Gate"){
+  timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
+    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+    if (qg.status != 'OK') {
+      error "Pipeline aborted due to quality gate failure: ${qg.status}"
+    }
+   
+    // stage("Quality gate") {
            
-    //          def qg = waitForQualityGate(webhookSecretId: '') // Reuse taskId previously collected by withSonarQubeEnv
-    //          if (qg.status != 'OK') {
-    //                 sh" echo $qg "
-    //                 error "Pipeline aborted due to quality gate failure: ${qg.status}"
-    // }
-    //          }
-    // }
-    stage("Quality gate") {
-           
-                waitForQualityGate abortPipeline: true
+    //             waitForQualityGate abortPipeline: true
             
-        }
+    //     }
 }
 }
