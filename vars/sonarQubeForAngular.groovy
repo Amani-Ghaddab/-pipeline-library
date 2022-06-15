@@ -7,7 +7,7 @@ def call (Map config)
                  dir("Source/${config.projectName}") {
               
                 
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=AosoFront -Dsonar.login=23b5d4c1c1f76c539f1d0019945228a4003d6a51"      
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=AosoFront -Dsonar.login=51185a986fc11812abcbae108d6a72a6ff5d031e"      
                               }
                 // timeout(time: 10, unit: 'MINUTES') {
                 //     waitForQualityGate abortPipeline: true
