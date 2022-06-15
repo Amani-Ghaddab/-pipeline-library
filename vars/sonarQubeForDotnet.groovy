@@ -31,5 +31,7 @@ def call (Map config)
             
         }
 }
+    stage("check that it failes"){
+        sh" echo failed"}
 }
         }
