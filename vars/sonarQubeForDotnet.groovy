@@ -27,16 +27,8 @@ def call (Map config)
 //       error "Pipeline aborted due to quality gate failure: ${qg.status}"
 //     }
    
-    stage("Quality gate") {
-           def qualitygate = waitForQualityGate()
-          sleep(10)
-          if (qualitygate.status != "OK") {
-            waitForQualityGate abortPipeline: true
-            
-
-            
-        }
+  
 }
     
 }
-        }
+        
