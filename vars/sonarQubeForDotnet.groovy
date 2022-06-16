@@ -3,10 +3,10 @@ def call (Map config)
 
     node
         {
-       stage ("install sonarqube"){
-           sh " /usr/local/bin/docker-compose -f Scripts/Back/sonarQube/docker-compose.yml up -d --build "
+    //    stage ("install sonarqube"){
+    //        sh " /usr/local/bin/docker-compose -f Scripts/Back/sonarQube/docker-compose.yml up -d --build "
                 
-       }
+    //    }
        stage('quality code analysis') {
     //withCredentials([string(credentialsId: 'adminsonarqube', variable: 'ADMIN_SONNARQUBE')]) {
             
