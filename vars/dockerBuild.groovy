@@ -3,7 +3,7 @@ def call (Map config)
     node
         {
              when {
-                environment name:'APPROVED_DEPLOY', value: 'yes'
+                environment name:'APPROVED_BUILD', value: 'yes'
             }
          stage('Docker build and up')
                 {  

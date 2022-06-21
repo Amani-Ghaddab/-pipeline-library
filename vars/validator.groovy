@@ -7,8 +7,8 @@ def call (Map config)
                 
                 //----------------send an approval prompt-------------
                 script {
-                   env.APPROVED_DEPLOY = input message: 'User input required',
-                   parameters: [choice(name: 'Deploy?', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
+                   env.APPROVED_BUILD = input message: 'User input required',
+                   parameters: [choice(name: 'Build?', choices: 'no\nyes', description: 'Choose "yes" if you want to Build this image')]
                        }
                 //-----------------end approval prompt------------
             }
