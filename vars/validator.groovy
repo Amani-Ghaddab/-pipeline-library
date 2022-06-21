@@ -3,7 +3,7 @@ def call (Map config)
     node
         {
            stage('Approval Step'){
-          steps{
+        
                 
                 //----------------send an approval prompt-------------
                 script {
@@ -19,5 +19,5 @@ def call (Map config)
 
         //     echo "Java rocks?:" + doesJavaRock
         }  
-     }
+     
     
