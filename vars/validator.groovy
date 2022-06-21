@@ -21,4 +21,3 @@ def call (Map config)
         }  
      }
     
-}
