@@ -6,6 +6,7 @@ def call (Map config)
         
     
        stage('quality code analysis') {
+           sh" /usr/local/bin/docker-compose  "
               
          def scannerHome = tool "${config.SonarScannerMSBuildTool}"
              withSonarQubeEnv("${config.SonarQubeEnv}") { 
