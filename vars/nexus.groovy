@@ -16,8 +16,6 @@ stage('Clean') {
   stage('Pack') {
   
     sh 'dotnet pack --no-build --output nupkgs'
-
-     sh"ls -a /bin/Debug/net5.0"
   }
   stage('Publish') {
   
