@@ -13,9 +13,9 @@ def call (Map config)
   
     sh 'cd dist/AosoFront'
     sh' npm pack'
-     sh' npm adduser'
+    
     //sh'npm publish'
-    sh" npm --registry=http://localhost:8081/repository/AosoFront publish *.tgz"
+    sh" npm --registry=http://localhost:8081/repository/AosoFront publish *.tgz -k a616e0d5-72c9-3de9-8bd7-261ed9452add"
   }
   
         
