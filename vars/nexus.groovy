@@ -10,7 +10,7 @@ stage('Clean') {
   }
   stage('Build') {
   
-    sh 'dotnet build --configuration Release'
+    sh 'dotnet build --configuration Nuget.Config'
  
   }
   stage('Pack') {
