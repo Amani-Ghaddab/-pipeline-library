@@ -1,5 +1,6 @@
 def call (Map config)
 {
+    node{
   dir("Source/AosoFront") {
            stage('Clean') {
    steps {
@@ -25,4 +26,4 @@ def call (Map config)
 }
      
     
-}
+}}
