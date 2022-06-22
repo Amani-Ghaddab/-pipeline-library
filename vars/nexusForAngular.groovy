@@ -13,6 +13,7 @@ def call (Map config)
   
     sh 'cd dist/AosoFront'
     sh' npm pack'
+    sh'npm publish'
   }
   
         
