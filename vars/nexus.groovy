@@ -1,6 +1,6 @@
 def call (Map config)
 {
-  
+  dir("Source/AosoFront") {
            stage('Clean') {
    steps {
     sh 'dotnet clean'
@@ -25,3 +25,4 @@ def call (Map config)
 }
      
     
+}
