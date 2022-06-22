@@ -2,6 +2,7 @@ def call (Map config)
 {
     node{
   dir("Source/AosoFront") {
+      sh"ls -a"
 stage('Clean') {
    
     sh 'dotnet clean'
