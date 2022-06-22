@@ -20,7 +20,7 @@ stage('Clean') {
   }
   stage('Publish') {
   
-    sh "dotnet nuget push nupkgs/*.nupkg -k 9de1620e-126d-325b-af11-acba7a14b436 -s http://localhost:8081/repository/nuget-hosted/"
+    sh "dotnet nuget push nupkgs/*.nupkg -s http://localhost:8081/repository/nuget-hosted/ -k 9de1620e-126d-325b-af11-acba7a14b436 "
    
         }  
         
