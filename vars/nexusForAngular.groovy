@@ -10,8 +10,8 @@ def call (Map config)
  
   }
   stage('Pack') {
-  sh 'ls dist'
-    sh 'cd dist/AosoFront'
+  
+    sh 'cd dist/DevOpsFront'
     sh' npm pack'
     //sh"ng build --aot --prod"
     //sh'npm publish'
