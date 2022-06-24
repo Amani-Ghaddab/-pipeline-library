@@ -13,7 +13,7 @@ def call (Map config)
   
     sh 'cd dist/DevOpsFront'
     sh' npm pack'
-    //sh"ng build --aot --prod"
+    sh"npm config get registry"
     //sh'npm publish'
     sh" npm login --registry=http://localhost:8081/repository/AosoFrontProxy/"
    // | echo admin | echo 123456 | amani.ghaddab@eniso.u-sousse.tn"
