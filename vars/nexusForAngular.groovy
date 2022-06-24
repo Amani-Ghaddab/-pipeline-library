@@ -13,9 +13,9 @@ def call (Map config)
   
     sh 'cd dist/DevOpsFront'
     sh' npm pack'
-    sh"npm config get registry"
+    sh"npm config set registry http://localhost:8081/"
     //sh'npm publish'
-    sh" npm login --registry=https://registry.npmjs.org/repository/AosoFrontProxy/"
+    sh" npm login --registry=http://localhost:8081/repository/AosoFrontProxy/"
    // | echo admin | echo 123456 | amani.ghaddab@eniso.u-sousse.tn"
   }
   
