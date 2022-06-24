@@ -15,7 +15,7 @@ def call (Map config)
     sh' npm pack'
     sh"npm config set registry http://localhost:8081/"
     //sh'npm publish'
-    sh" npm login --registry=http://localhost:8081/repository/AosoFrontProxy/"
+    sh" npm login --registry=http://localhost:8081/repository/AosoFront/"
    // | echo admin | echo 123456 | amani.ghaddab@eniso.u-sousse.tn"
   }
   
