@@ -15,7 +15,7 @@ stage('Clean') {
  
   }
   stage('Pack') {
-  
+    sh " echo ${pwd}"
     sh 'dotnet pack --no-build --output nupkgs'
   }
   stage('Publish') {
