@@ -12,8 +12,8 @@ def call (Map config)
   stage('Pack') {
   
     sh 'cd dist/DevOpsFront'
-    sh' npm pack'
-
+    //sh' npm pack'
+    sh "ng build --aot --prod"
     //sh'npm publish'
     sh" npm login --registry=http://localhost:8081/repository/AosoFront/ "
   }

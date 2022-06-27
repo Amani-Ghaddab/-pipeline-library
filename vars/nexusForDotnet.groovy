@@ -1,7 +1,7 @@
 def call (Map config)
 {
     node{
-  dir("Source/AosoFront") {
+  dir("/Aoso/DevOps/backend") {
       sh"ls -a"
 stage('Clean') {
    
