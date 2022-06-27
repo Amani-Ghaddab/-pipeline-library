@@ -20,7 +20,7 @@ stage('Clean') {
   }
   stage('Publish') {
   
-    sh "dotnet nuget push nupkgs/*.nupkg -s http://localhost:8081/repository/AosoBack/ -k a616e0d5-72c9-3de9-8bd7-261ed9452add"
+    sh "dotnet nuget push nupkgs/*.nupkg -s http://localhost:8081/repository/AosoBack/ -k f25611e8-6ecc-3587-b95c-6be0ec3248ee"
    
         }  
         
