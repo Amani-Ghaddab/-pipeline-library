@@ -12,11 +12,11 @@ def call (Map config)
   stage('Pack') {
   
     sh 'cd dist/DevOpsFront'
-    //sh' npm pack'
+    sh' npm pack'
     sh "ng build --aot --prod"
     //sh'npm publish'
    // sh" npm publish --registry http://localhost:8081/repository/AosoFront/ "
-   sh"npm --registry http://your-host:8081/repository/npm-group"
+   sh"npm publish --registry http://your-host:8081/repository/npm-group"
   }
   
         
