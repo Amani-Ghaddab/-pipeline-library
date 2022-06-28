@@ -16,7 +16,8 @@ def call (Map config)
     sh "ng build --aot --prod"
     //sh'npm publish'
    // sh" npm publish --registry http://localhost:8081/repository/AosoFront/ "
-   sh"npm publish --registry http://localhost:8081/repository/npm-registry-AosoFront/"
+   sh"npm login -u admin -p 123456 --registry http://localhost:8081/repository/npm-registry-AosoFront/"
+   sh'npm publish'
   }
   
         
