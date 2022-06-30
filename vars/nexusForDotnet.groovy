@@ -73,10 +73,12 @@ def call (Map config)
                         //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
                    
                             
-                            dockerImage = docker.build "docker_back/front" + ":latest" 
                             
                     
                         stage('push image in nexus'){      
+                            sh "ls -la"
+                            dockerImage = docker.build "docker_back/front" + ":latest" 
+                            
                                 //def version = "latest"
                                 //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
                                 docker.withRegistry( 'http://localhost:8082/repository/dockerForBack', 'docker_back' ) { 
@@ -87,4 +89,4 @@ def call (Map config)
 }
 
      
-    
+}
