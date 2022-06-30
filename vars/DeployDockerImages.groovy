@@ -10,7 +10,7 @@ def call (Map config)
                 sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFolder}"
                 sh " ls -la ${config.destinationFolder} "
                 dir ("/srv/Aoso/DevOps/backend"){
-                dockerImage = docker.build "docker_back/AosoBack" + ":latest" }
+                dockerImage = docker.build "docker_back/aoso_back" + ":latest" }
             }  
         stage('push image in nexus'){      
                                 //def version = "latest"
