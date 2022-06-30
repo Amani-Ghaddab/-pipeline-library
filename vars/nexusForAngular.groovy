@@ -14,7 +14,7 @@ def call (Map config)
     sh 'cd dist/DevOpsFront'
     sh' npm pack'
     //sh'npm publish'
-   sh" npm publish --registry http://localhost:8081/repository/npm-registry/ "
+   sh" npm publish --registry http://localhost:8081/repository/npm-private/ "
   //  sh"npm login -u admin -p 123456 --registry http://localhost:8081/repository/npm-registry/"
   //  sh'npm publish'
   }
