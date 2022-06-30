@@ -36,7 +36,7 @@ def call (Map config)
     stage('Building image') {
     
         script {
-          dockerImage = docker.build imageName
+          dockerImage = docker.build back
         }
       
     }
