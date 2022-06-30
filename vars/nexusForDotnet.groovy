@@ -72,7 +72,7 @@ def call (Map config)
                         //def version = "latest"
                         //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
                      dir ("/srv/Aoso/DevOps/backend"){
-                        dockerImage = docker.build "docker_back/aoso_back" + ":latest"
+                        dockerImage = docker.build "docker_back/aoso_back" + ":latest" --no-cache
                     }
    stage('push image in nexus'){      
              docker.withRegistry( 'http://localhost:8082/repository/dockerForBack', 'nexus' ) { 
