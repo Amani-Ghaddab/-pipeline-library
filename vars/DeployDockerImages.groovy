@@ -12,6 +12,12 @@ def call (Map config)
                 dir ("/srv/Aoso/DevOps/backend"){
                 dockerImage = docker.build "docker_back/front" + ":latest" }
             }  
-        
+        stage('push image in nexus'){      
+                                //def version = "latest"
+                                //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
+                                docker.withRegistry( 'http://localhost:8082/repository/dockerForBack', 'docker_back' ) { 
+                                    dockerImage.push() 
+                                } 
+                             }
      }
 }
