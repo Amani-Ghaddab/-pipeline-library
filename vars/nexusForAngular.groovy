@@ -13,7 +13,7 @@ def call (Map config)
                         //def version = "latest"
                         //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
                      dir ("/srv/Aoso/DevOps/frontend"){
-                        dockerImage = docker.build "docker_back/aoso_front" + ":latest"
+                        dockerImage = docker.build "docker_front/aoso_front" + ":latest"
                     }
    stage('push image in nexus'){      
              docker.withRegistry( 'http://localhost:8083/repository/dockerForFront', 'nexus' ) { 
