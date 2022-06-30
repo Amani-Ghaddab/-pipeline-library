@@ -71,17 +71,12 @@ def call (Map config)
    stage('Creating our image'){      
                         //def version = "latest"
                         //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
-                        dir("Scripts/Back/")
-                            {
-                                sh "ls -la"
-                            dockerImage = docker.build "docker_back/front" + ":latest" 
-                            }
+                     dir ("/srv/Aoso/DevOps/backend"){
+                        dockerImage = docker.build "docker_back/aoso_back" + ":latest"
                     }
-                        stage('push image in nexus'){      
-                                //def version = "latest"
-                                //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
-                                docker.withRegistry( 'http://localhost:8082/repository/dockerForBack', 'docker_back' ) { 
-                                    dockerImage.push() 
+   stage('push image in nexus'){      
+             docker.withRegistry( 'http://localhost:8082/repository/dockerForBack', 'docker_back' ) { 
+            dockerImage.push() 
                                 } 
                              }
         }
