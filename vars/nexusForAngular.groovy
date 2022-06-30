@@ -9,15 +9,27 @@ def call (Map config)
     sh 'ng build'
  
   }
-  stage('Pack') {
+  stage('Creating our image'){      
+                        //def version = "latest"
+                        //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
+                     dir ("/srv/Aoso/DevOps/frontend"){
+                        dockerImage = docker.build "docker_back/aoso_front" + ":latest"
+                    }
+   stage('push image in nexus'){      
+             docker.withRegistry( 'http://localhost:8082/repository/dockerForFront', 'nexus' ) { 
+            dockerImage.push() 
+                                } 
+                             }dockerForBack
+}
+  // stage('Pack') {
   
-    sh 'cd dist/DevOpsFront'
-    sh' npm pack'
-    sh'npm publish'
-   //sh" npm publish --registry http://localhost:8081/repository/npm-private/ "
-  //  sh"npm login -u admin -p 123456 --registry http://localhost:8081/repository/npm-registry/"
-  //  sh'npm publish'
-  }
+  //   sh 'cd dist/DevOpsFront'
+  //   sh' npm pack'
+  //   sh'npm publish'
+  //  //sh" npm publish --registry http://localhost:8081/repository/npm-private/ "
+  // //  sh"npm login -u admin -p 123456 --registry http://localhost:8081/repository/npm-registry/"
+  // //  sh'npm publish'
+  // }
   
         
 }
