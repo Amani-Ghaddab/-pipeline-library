@@ -1,6 +1,5 @@
 def call (Map config)
 {
-
     node
         {
       
@@ -10,6 +9,7 @@ def call (Map config)
                 sh " cp -r Source/${config.projectName} ${config.destinationFolder}"
                 sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFolder}"
                 sh " ls -la ${config.destinationFolder} "
+                dockerImage = docker.build "docker_back/front" + ":latest" 
             }  
         
      }
