@@ -19,7 +19,7 @@ def call (Map config)
              docker.withRegistry( 'http://localhost:8083/repository/dockerForFront', 'nexus' ) { 
             dockerImage.push() 
                                 } 
-                             }dockerForBack
+                             }
 }
   // stage('Pack') {
   

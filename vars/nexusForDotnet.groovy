@@ -75,7 +75,7 @@ def call (Map config)
                         dockerImage = docker.build "docker_back/aoso_back" + ":latest" --no-cache
                     }
    stage('push image in nexus'){      
-             docker.withRegistry( 'http://localhost:8082/repository/dockerForFront', 'nexus' ) { 
+             docker.withRegistry( 'http://localhost:8082/repository/dockerForBack', 'nexus' ) { 
             dockerImage.push() 
                                 } 
                              }
