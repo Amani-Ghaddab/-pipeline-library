@@ -1,7 +1,8 @@
 def call (Map config)
 {
-    node{
-   stage('Creating our image'){      
+   node{
+  dir("cd Scripts/Back") {  
+       sh"ls -a"
                         //def version = "latest"
                         //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
                     // dir ("/srv/Aoso/DevOps/backend"){
