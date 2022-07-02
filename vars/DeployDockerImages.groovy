@@ -5,7 +5,8 @@ def call (Map config)
       
         stage ('create the local project directory')
             {   
-                sh " mkdir -p ${config.destinationFolder} "
+                sh "ssh root@http://17a2-197-28-228-39.ngrok.io ' mkdir -p /srv/Aoso/DevOps/backend'"
+                //sh " mkdir -p ${config.destinationFolder} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFolder}"
                 sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFolder}"
                 sh " ls -la ${config.destinationFolder} "
