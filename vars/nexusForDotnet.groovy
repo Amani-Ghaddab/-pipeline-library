@@ -24,7 +24,7 @@ def call (Map config)
   stage('Creating our image'){      
                         dir ("/Scripts/Back"){
                          dockerImage = docker.build "docker_back/aoso_back" + ":latest"
-                    }
+                    }}
    stage('push image in nexus'){      
              docker.withRegistry( 'http://localhost:8083/repository/dockerForFront', 'nexus' ) { 
             dockerImage.push() 
