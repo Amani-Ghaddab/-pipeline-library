@@ -5,7 +5,7 @@ def call (Map config)
         {
            stage("Quality gate") {
           def qualitygate = waitForQualityGate()
-          sleep(10)
+         
           if (qualitygate.status != "OK") {
             waitForQualityGate abortPipeline: true
             // mail to: "ameni.ghaddabe@gmail.com",
@@ -17,6 +17,7 @@ def call (Map config)
       
             error "Pipeline aborted due to quality gate failure: ${qualitygate.status}"
           }
+          sh"echo mregel"
            }
 
             
