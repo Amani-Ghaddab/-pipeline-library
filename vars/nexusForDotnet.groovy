@@ -71,7 +71,8 @@ def call (Map config)
    stage('Creating our image'){      
                         //def version = "latest"
                         //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
-                     dir ("/srv/Aoso/DevOps/backend"){
+                    // dir ("/srv/Aoso/DevOps/backend"){
+                     dir ("/Scripts/Back"){
                         dockerImage = docker.build "docker_back/aoso_back" + ":latest" --no-cache
                     }
    stage('push image in nexus'){      
