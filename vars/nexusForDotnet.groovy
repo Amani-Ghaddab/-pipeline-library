@@ -52,13 +52,13 @@ def call (Map config)
 //       }
 //     }
     
-
-     stage('stop previous containers') {
+//     // Stopping Docker containers for cleaner Docker run
+//     stage('stop previous containers') {
         
-             sh 'ls'
+//             sh 'docker ps -f name=back -q | xargs --no-run-if-empty docker container stop'
 //             sh 'docker container ls -a -fname=back -q | xargs -r docker container rm'
          
-        }
+//        }
       
 //     stage('Docker Run') {
      
@@ -68,21 +68,20 @@ def call (Map config)
          
 //       }    
 //     }
-   // stage('Creating our image'){      
-   //                      //def version = "latest"
-   //                sh 'ls'
-   //                  // dir ("/srv/Aoso/DevOps/backend"){
-   //                   dir ("/Scripts/Back"){
-   //                      dockerImage = docker.build "docker_back/aoso_back" + ":latest" --no-cache
-   //                  }
-   // stage('push image in nexus'){      
-   //           docker.withRegistry( 'http://localhost:8082/repository/dockerForBack', 'nexus' ) { 
-   //          dockerImage.push() 
-   //                              } 
-   //                           }
-   //      }
-    }
+   stage('Creating our image'){      
+                        //def version = "latest"
+                        //sh 'docker build -f "${config.Dockerfile}" -t nexus_docker/aoso '
+                    // dir ("/srv/Aoso/DevOps/backend"){
+                     dir ("/srv/Aoso/DevOps/backend"){
+                        dockerImage = docker.build "docker_back/aoso_back" + ":latest" --no-cache
+                    }
+   stage('push image in nexus'){      
+             docker.withRegistry( 'http://localhost:8082/repository/dockerForBack', 'nexus' ) { 
+            dockerImage.push() 
+                                } 
+                             }
+        }
 }
 
      
-
+}
