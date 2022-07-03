@@ -5,7 +5,7 @@ def call (Map config)
       
         stage ('create the local project directory')
             {   
-                sh "ssh -v amani@172.0.0.1 ' mkdir -p /srv/Aoso/DevOps/backend'"
+                sh "ssh amani@41.225.43.141' mkdir -p /srv/Aoso/DevOps/backend'"
                 //sh " mkdir -p ${config.destinationFolder} "
                 sh " cp -r Source/${config.projectName} ${config.destinationFolder}"
                 sh " cp -r ${config.dockerComposeFileLocation} ${config.dockerFileLocation} ${config.nginxLocation} ${config.destinationFolder}"
