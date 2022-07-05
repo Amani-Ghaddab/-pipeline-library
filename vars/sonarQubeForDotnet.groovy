@@ -33,6 +33,4 @@ def call (Map config)
   
 }
 
-    
-}
-        
+     
