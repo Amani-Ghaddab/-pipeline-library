@@ -3,6 +3,7 @@ def call (Map config)
    pipeline {
       stages{
             stage("gitCheckout") {
+                steps{
                 sh"echo ${config.branche}"
             checkout([$class: 'GitSCM', 
             branches: [[name: "${config.branche}"]], 
@@ -16,6 +17,7 @@ def call (Map config)
 
         //     echo "Java rocks?:" + doesJavaRock
         }  
+            }
      }
    }
     
