@@ -5,6 +5,9 @@ def call (Map config)
         {
     
        stage('quality code analysis') {
+           if( env.test){
+               sh 'echo hello'
+             }
              def scannerHome = tool "${config.SonarScannerMSBuildTool}"
              withSonarQubeEnv("${config.SonarQubeEnv}") { 
                  dir("Source/${config.projectName}") {

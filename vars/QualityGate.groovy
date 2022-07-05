@@ -5,9 +5,7 @@ def call (Map config)
         {
          
            stage("Quality gate") {
-             if( env.test){
-               sh 'echo hello'
-             }
+             
           def qualitygate = waitForQualityGate()
          
           if (qualitygate.status != "OK") {
