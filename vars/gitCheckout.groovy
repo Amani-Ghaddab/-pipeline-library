@@ -1,7 +1,7 @@
 def call (Map config)
 {
    pipeline {
-      agent any
+      stages{
             stage("gitCheckout") {
                 sh"echo ${config.branche}"
             checkout([$class: 'GitSCM', 
@@ -17,5 +17,6 @@ def call (Map config)
         //     echo "Java rocks?:" + doesJavaRock
         }  
      }
+   }
     
 }
