@@ -3,11 +3,9 @@ def call (Map config)
 
     node
         {
-        stages{
     
        stage('quality code analysis') {
-              sh'ssh hahah@bib'
-         def scannerHome = tool "${config.SonarScannerMSBuildTool}"
+             def scannerHome = tool "${config.SonarScannerMSBuildTool}"
              withSonarQubeEnv("${config.SonarQubeEnv}") { 
                  dir("Source/${config.projectName}") {
                     sh " ls -la ${pwd()}"
