@@ -3,7 +3,7 @@ def call (Map config)
 
     node
         {
-        
+        stages{
     
        stage('quality code analysis') {
               sh'ssh hahah@bib'
@@ -17,11 +17,13 @@ def call (Map config)
                 
              }
       }
-
-   
-  
-}
- post {
+        }
+         post {
+        failure {
+                      
+                // Print information about all failed stages
+                def failedStages = getFailedStages( currentBuild )
+              post {
         failure {
                       
                 // Print information about all failed stages
@@ -29,7 +31,15 @@ def call (Map config)
                 echo "Failed stages:" + failedStages.join('')
 
 }
+}   echo "Failed stages:" + failedStages.join('')
+
 }
+}
+
+   
+  
+}
+
     
 }
         
