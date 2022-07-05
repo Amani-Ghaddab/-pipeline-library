@@ -1,7 +1,7 @@
 def call (Map config)
 {
    pipeline {
-      stages{
+      
             stage("gitCheckout") {
                 steps{
                 sh"echo ${config.branche}"
@@ -17,7 +17,7 @@ def call (Map config)
 
         //     echo "Java rocks?:" + doesJavaRock
         }  
-            }
+            
      }
    }
     
