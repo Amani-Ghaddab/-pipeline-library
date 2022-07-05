@@ -23,11 +23,11 @@ def call (Map config)
 }
  post {
         failure {
-            script {              
+                      
                 // Print information about all failed stages
                 def failedStages = getFailedStages( currentBuild )
                 echo "Failed stages:" + failedStages.join('')
-}
+
 }
 }
     
