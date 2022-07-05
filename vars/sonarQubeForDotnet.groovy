@@ -17,7 +17,11 @@ def call (Map config)
                 
              }
       }
-      post {
+
+   
+  
+}
+ post {
         failure {
             script {              
                 // Print information about all failed stages
@@ -25,10 +29,6 @@ def call (Map config)
                 echo "Failed stages:" + failedStages.join('')
 }
 }
-}
-
-   
-  
 }
     
 }
