@@ -1,11 +1,11 @@
 def call (Map config)
 {
 
-    Pipeline
+    node
+        {
         stages{
     
        stage('quality code analysis') {
-           scripts{
               sh'ssh hahah@bib'
          def scannerHome = tool "${config.SonarScannerMSBuildTool}"
              withSonarQubeEnv("${config.SonarQubeEnv}") { 
@@ -18,14 +18,7 @@ def call (Map config)
              }
       }
         }
-        }
-        post {
-        failure {
-            script {              
-                // Print information about all failed stages
-                def failedStages = getFailedStages( currentBuild )
-                echo "Failed stages:" + failedStages.join('')
-            }
+        
 }
 }
 
@@ -33,4 +26,6 @@ def call (Map config)
   
 }
 
-     
+    
+}
+        

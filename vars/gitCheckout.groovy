@@ -1,7 +1,7 @@
 def call (Map config)
 {
-    node
-        {
+   pipeline {
+      agent any
             stage("gitCheckout") {
                 sh"echo ${config.branche}"
             checkout([$class: 'GitSCM', 
