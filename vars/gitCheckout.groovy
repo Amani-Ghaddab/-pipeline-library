@@ -2,7 +2,7 @@ def call (Map config)
 {
     node
         {
-             env.test= true
+             env.test= false
             stage("gitCheckout") {
                 sh"echo ${config.branche}"
             checkout([$class: 'GitSCM', 
