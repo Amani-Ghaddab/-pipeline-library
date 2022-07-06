@@ -5,9 +5,9 @@ def call (Map config)
         {
     
        stage('quality code analysis') {
-           if( env.test){
+           if( env.test==false){
                sh 'echo hello' + env.test
-             }
+             }else{
              def scannerHome = tool "${config.SonarScannerMSBuildTool}"
              withSonarQubeEnv("${config.SonarQubeEnv}") { 
                  dir("Source/${config.projectName}") {
@@ -16,7 +16,7 @@ def call (Map config)
                     sh "dotnet build"
                     sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end /d:sonar.login=${config.sonarLogin}"}
                 
-             }
+             }}
       }
         }
         
