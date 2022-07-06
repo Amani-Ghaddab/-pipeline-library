@@ -18,7 +18,7 @@ def call (Map config)
             //         sh "dotnet build"
             //         sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end /d:sonar.login=${config.sonarLogin}"}
                 
-             }}
+            // }}
       }
         }
         
